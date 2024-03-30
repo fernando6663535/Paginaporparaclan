@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página de Cómics</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+            display: flex;
+        }
+        header {
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            width: 100%;
+        }
+        .sidebar {
+            background-color: #444;
+            color: white;
+            padding: 20px;
+            width: 200px;
+        }
+        .main-content {
+            flex: 1;
+            padding: 20px;
+        }
+        section {
+            padding: 20px;
+            display: none;
+            height: 500px; /* Altura fija para permitir el desplazamiento vertical */
+            overflow-y: auto; /* Desplazamiento vertical */
+        }
+        .comic-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .comic {
+            width: 200px;
+            margin: 10px;
+            border: 2px solid #333;
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+            transition: transform 0.3s ease-in-out;
+        }
+        .comic:hover {
+            transform: scale(1.1);
+        }
+        .comic img {
+            width: 100%;
+            height: auto;
+        }
+        .category-title {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+        #search {
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+            margin-bottom: 20px;
+        }
+        .sidebar a {
+            display: block;
+            color: white;
+            text-decoration: none;
+            padding: 5px 0;
+        }
+        .sidebar a:hover {
+            background-color: #666;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>¡Bienvenido al mundo de los cómics!</h1>
+        <p>Explora nuestra colección de cómics</p>
+        <input type="text" id="search" placeholder="Buscar categoría...">
+    </header>
+    <div class="sidebar">
+        <a href="#" onclick="showCategory('heroes')">Heroes</a>
+        <a href="#" onclick="showCategory('manga')">Manga</a>
+        <a href="#" onclick="showCategory('H')">Comics H</a>
+        <a href="#" onclick="showCategory('lolis')">Lolis</a>
+    </div>
+    <div class="main-content">
+        <section id="heroes">
+            <h2 class="category-title">Heroes</h2>
+            <div class="comic-container">
+                <!-- Aquí van las imágenes de los héroes -->
+            </div>
+        </section>
+    <section id="manga">
+    <h2 class="category-title">Manga</h2>
+    <div class="comic-container">
+        <div class="comic">
+            <img src="https://i.ibb.co/qCSCXDj/image.png" alt="Manga 1">
+        </div>
+        <div class="comic">
+            <img src="https://i.ibb.co/TcbbVLs/image.png" alt="Manga 2">
+        </div>
+        <!-- Agrega más imágenes aquí -->
+        <div class="comic">
+            <img src="https://i.ibb.co/rcdF5JV/image.png" alt="Manga 3">
+        </div>
+        <div class="comic">
+            <img src="https://i.ibb.co/TgzRnkM/image.png" alt="Manga 4">
+        </div>
+        <div class="comic">
+            <img src="https://i.ibb.co/rvg4PkC/image.png" alt="Manga 5">
+        </div>
+        <div class="comic">
+            <img src="https://i.ibb.co/qsXJkSP/image.png" alt="Manga 6">
+        </div>
+        <div class="comic">
+            <img src="https://i.ibb.co/w6xn9ty/image.png" alt="Manga 7">
+        </div>
+        <div class="comic">
+            <img src="https://i.ibb.co/K2xqCF0/image.png" alt="Manga 8">
+        </div>
+        <div class="comic">
+            <img src="https://i.ibb.co/vsg9Nxv/image.png" alt="Manga 9">
+        </div>
+        <div class="comic">
+            <img src="https://i.ibb.co/r69Z6pH/image.png" alt="Manga 10">
+        </div>
+        <div class="comic">
+            <img src="https://i.ibb.co/Sn77F7n/image.png" alt="Manga 11">
+        </div>
+        <div class="comic">
+            <img src="https://i.ibb.co/vmHbynH/image.png" alt="Manga 12">
+        </div>
+        <div class="comic">
+            <img src="https://i.ibb.co/7jDCHQg/image.png" alt="Manga 13">
+        </div>
+    </div>
+        </section>
+        <section id="H">
+            <h2 class="category-title">Comics H</h2>
+            <div class="comic-container">
+                <!-- Aquí van las imágenes de los comics H -->
+            </div>
+        </section>
+        <section id="lolis">
+            <h2 class="category-title">Lolis</h2>
+            <div class="comic-container">
+                <!-- Aquí van las imágenes de las lolis -->
+            </div>
+        </section>
+    </div>
+    <footer>
+        <p>&copy; 2024 TuNombre - Todos los derechos reservados</p>
+    </footer>
+
+    <script>
+        // Función para mostrar la sección de una categoría seleccionada y cargar sus cómics
+        function showCategory(category) {
+            var sections = document.querySelectorAll("section");
+            sections.forEach(function(section) {
+                section.style.display = "none";
+            });
+            document.getElementById(category).style.display = "block";
+        }
+
+        // Filtrar las secciones de categoría al escribir en el campo de búsqueda
+        document.getElementById("search").addEventListener("input", function() {
+            var searchValue = this.value.toLowerCase();
+            var sections = document.querySelectorAll("section");
+            sections.forEach(function(section) {
+                var sectionTitle = section.querySelector(".category-title").textContent.toLowerCase();
+                if (sectionTitle.includes(searchValue)) {
+                    section.style.display = "block";
+                } else {
+                    section.style.display = "none";
+                }
+            });
+        });
+
+        // Cargar cómics para la categoría "heroes" al cargar la página
+        window.onload = function() {
+            showCategory("heroes");
+        };
+    </script>
+</body>
+</html>
